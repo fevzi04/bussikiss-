@@ -16,9 +16,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveX = 0;
     private float moveY = 0;
     private float Speed;
-
-
-
     void Update()
     {
         processInputs();
@@ -28,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {     
         move();
     }
 
