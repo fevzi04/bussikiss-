@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private Vector2 moveDirection;
+    public bool canMove = true;
 
     private float moveX = 0;
     private float moveY = 0;
@@ -26,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {     
-        move();
+        if(canMove){
+         move();
+        }
     }
 
     void processInputs()
@@ -44,4 +47,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
+
+    public void enableMovement(){
+        canMove = true;
+    }
+    
+    public void disableMovement(){
+        canMove = false;
+        rb.velocity = new Vector2(0,0);
+    }
+
 }
